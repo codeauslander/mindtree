@@ -18,7 +18,6 @@ public class Solution {
         return canWin(leap, game, i + leap) ||
                canWin(leap, game, i + 1) ||
                canWin(leap, game, i - 1);
-
     }
 
     public static void main(String[] args) {
@@ -33,7 +32,7 @@ public class Solution {
                 game[i] = scan.nextInt();
             }
 
-            System.out.println( (canWin(leap, game,0)) ? "YES" : "NO" );
+            System.out.println( (canWin(leap, game, 0)) ? "YES" : "NO" );
         }
         scan.close();
     }
