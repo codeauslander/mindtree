@@ -33,28 +33,26 @@ public class test {
     // }
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        Deque deque = new ArrayDeque<>();
-        int n = in.nextInt();
-        int m = in.nextInt();
-        int unique = 0;
-
-        for (int i = 0; i < n; i++) {
-            int num = in.nextInt();
-            //  System.out.println(n+","+m+","+unique+","+num+","+i);
-            if( i == 0){
-                deque.add(num);
-                unique ++;
-            } else {
-                if(deque.size() == m){
-                    deque.removeFirst();
-                }
-                if(!deque.contains(num) && unique < m){
-                    unique ++;
-                }
-                deque.addLast(num);
-            }
+      Scanner sc = new Scanner(System.in);
+      Deque<Integer> dq = new ArrayDeque<Integer>();
+      HashSet<Integer> s = new HashSet<Integer>();
+      int n = sc.nextInt();
+      int m = sc.nextInt();
+      int max = 0;
+      for (int i = 0; i < n; i++) {
+        int tmp = sc.nextInt();
+        dq.add(tmp);
+        s.add(tmp);
+    
+        if (dq.size() == m) {
+          max = Math.max(s.size(), max);
+          int item = dq.remove();
+          if (!dq.contains(item)) {
+            s.remove(item);
+          }
         }
-        System.out.println(unique);
+      }
+      System.out.println(max);
+      sc.close();
     }
 }
