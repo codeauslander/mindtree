@@ -139,7 +139,7 @@ class FancyVisitor extends TreeVis {
     public void visitLeaf(TreeLeaf leaf) {
     	//implement this
         if(leaf.getColor() == Color.GREEN){
-            greenLeaveSum += leaf.getValue();
+            greenLeaveSum += leaf.getValue() + 1;
         }
     }
 }
