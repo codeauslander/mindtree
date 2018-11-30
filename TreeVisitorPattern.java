@@ -139,7 +139,7 @@ class FancyVisitor extends TreeVis {
     public void visitLeaf(TreeLeaf leaf) {
     	//implement this
         if(leaf.getColor() == Color.GREEN){
-            greenLeaveSum += leaf.getValue() + 1;
+            greenLeaveSum += leaf.getValue();
         }
     }
 }
@@ -193,9 +193,9 @@ public class Solution {
             boolean childHasChild = (grandChildren != null && !grandChildren.isEmpty());
             Tree tree;
             if(childHasChild){
-                tree = new TreeNode(values[treeNumber - 1], colors[treeNumber - 1], parent.getDepth());
+                tree = new TreeNode(values[treeNumber - 1], colors[treeNumber - 1], parent.getDepth() + 1);
             } else {
-                tree = new TreeLeaf(values[treeNumber - 1], colors[treeNumber - 1], parent.getDepth());
+                tree = new TreeLeaf(values[treeNumber - 1], colors[treeNumber - 1], parent.getDepth() + 1);
             }
             parent.addChild(tree);
             if(tree instanceof TreeNode){
