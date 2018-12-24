@@ -8,41 +8,33 @@ import java.util.regex.*;
 public class Solution {
 
     public static void main(String[] args) {
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
         int M = scanner.nextInt();
-        BitSet B1 = new BitSet(N);
-        BitSet B2 = new BitSet(N);
-
-        for(int position = 0; position < M; position++){
-            String operator = scanner.next();
-            int operandOne = scanner.nextInt();
-            int operandTwo = scanner.nextInt();
-            BitSet b1;
-            BitSet b2;
-            if(operandOne == 1) { b1 = B1; }
-            else{ b1 = B2; }
-            if ( operator.equals("AND") || 
-                 operator.equals("OR") || 
-                 operator.equals("XOR")) {
-                    if (operandTwo == 1) { b2 = B2; } 
-                    else { b2 = B1; }
-                    if (operator.equals("AND"))
-                        b1.and(b2);
-                    else if (operator.equals("OR"))
-                        b1.or(b2);
-                    else if (operator.equals("XOR"))
-                        b1.xor(b2);             
-            } else {
-                if (operator.equals("SET"))
-                    b1.set(operandTwo);
-                else if (operator.equals("FLIP"))
-                    b1.flip(operandTwo);
+        Map<Integer, BitSet> bitSets = new HashMap<Integer, BitSet>();
+        for (int i = 0; i < 2; i++) {
+            bitSets.put(i+1, new BitSet(N));
+        }
+        for (int i = 0; i < M; i++) {
+            String operation = scanner.next();
+            int leftBitSet = scanner.nextInt();
+            int rightBitSet = scanner.nextInt();
+            if (operation.equals("AND")) {
+                bitSets.get(leftBitSet).and(bitSets.get(rightBitSet));
+            } else if (operation.equals("OR")) {
+                bitSets.get(leftBitSet).or(bitSets.get(rightBitSet));
+            } else if (operation.equals("XOR")) {
+                bitSets.get(leftBitSet).xor(bitSets.get(rightBitSet));
+            } else if (operation.equals("FLIP")) {
+                bitSets.get(leftBitSet).flip(rightBitSet);
+            } else if (operation.equals("SET")) {
+                bitSets.get(leftBitSet).set(rightBitSet);
             }
-            System.out.println(String.format("%d %d", B1.cardinality(), B2.cardinality()));
+            System.out.println(bitSets.get(1).cardinality() + " " + bitSets.get(2).cardinality());
         }
         scanner.close();
     }
 }
+
+
 

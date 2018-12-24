@@ -15,7 +15,7 @@ class Solution{
 		{
 			String name=in.nextLine();
 			int phone=in.nextInt();
-            contacts.put(name, phone);
+      contacts.put(name, phone);
 			in.nextLine();
             
 		}
