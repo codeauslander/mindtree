@@ -4,7 +4,6 @@ import java.math.*;
 import java.text.*;
 import java.util.*;
 import java.util.regex.*;
-
 public class Solution { 
     static int mixTwoCookies(int aCookie, int bCookie){
         return aCookie + 2 * bCookie;
