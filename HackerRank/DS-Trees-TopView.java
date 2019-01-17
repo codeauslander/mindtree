@@ -19,19 +19,35 @@ class Solution {
     	int data;
     	Node left;
     	Node right;
-	*/
-	public static void topView(Node root) {
-        System.out.print(root.data + " ");
-        Node leftNode = root.left, rightNode = root.right;
-        while(leftNode != null){
-            System.out.print(leftNode.data + " ");
-            leftNode = leftNode.left;
-        }
-        while(rightNode != null){
-            System.out.print(rightNode.data + " ");
-            rightNode = rightNode.right;
-        }        
-    }
+  */
+  
+	// public static void topView(Node root) {
+  //       System.out.print(root.data + " ");
+  //       Node leftNode = root.left, rightNode = root.right;
+  //       while(leftNode != null){
+  //           System.out.print(leftNode.data + " ");
+  //           leftNode = leftNode.left;
+  //       }
+  //       while(rightNode != null){
+  //           System.out.print(rightNode.data + " ");
+  //           rightNode = rightNode.right;
+  //       }        
+  //   }
+
+    // public static void top_view(Node root, int side) {
+    //     if (root != null) {
+    //         if (side <= 0) {
+    //             top_view(root.left, -1);
+    //         }
+    //         System.out.print(root.data + " ");
+    //         if (side >= 0) {
+    //             top_view(root.right, 1);
+    //         }
+    //     }
+    // }
+	  // public static void topView(Node root) {
+    //     top_view(root, 0);
+    // }
 
 	public static Node insert(Node root, int data) {
         if(root == null) {
