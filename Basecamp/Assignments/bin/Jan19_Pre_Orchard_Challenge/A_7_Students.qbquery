@@ -1,0 +1,15 @@
+﻿--  Increase the marks by 5 for the module operating system.
+-- select * from marks where module_code = 'CM0001';
+-- update marks set mark = mark + 5 where module_code = 'CM0001';
+-- select * from marks where module_code = 'CM0001';
+
+-- Update the surname of the students by adding the text “mind” before their surname. Add only the string “mind”, if it has a null value
+-- update students set surname = replace(surname, 'mind', '');
+-- update students set surname = concat('mind', surname);
+-- select * from students;
+
+-- Print student details who have scored more than 60 in C Programming module
+-- select * from marks join students  on module_code = 'CM0002' where mark > 60;
+
+-- Select students who have scored more than 80 marks in Database module
+select e.student_no, e.surname, e.forename, m.mark from students e join marks m where mark > 80;
