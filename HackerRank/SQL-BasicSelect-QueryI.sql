@@ -34,5 +34,7 @@ select distinct city from station where not regexp_like(city, '^[aeiouAEIOU].*[a
 select distinct city from station where not regexp_like(city, '^[aeiouAEIOU]') and not regexp_like(city, '[aeiouAEIOU]$');
 
 
+select sum(city.population) from city inner join country on city.countrycode = country.code where country.continent = 'Asia';
+
 
 
